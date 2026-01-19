@@ -38,13 +38,13 @@ class WelcomeScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   const Spacer(flex: 2),
-                  
-                  // Reusable Glow Header
+
+                  // Reusable Glow Header (Blue/Purple Gradient)
                   const GlowHeader(iconPath: 'assets/icons/icon1.png'),
-                  
+
                   const SizedBox(height: 40),
 
-                  // System Notification Pill (Inline implementation for now)
+                  // System Notification Pill
                   Container(
                     width: 225,
                     height: 35,
@@ -59,7 +59,11 @@ class WelcomeScreen extends StatelessWidget {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Image.asset('assets/icons/icon2.png', width: 14, color: AppColors.textPillColor),
+                        Image.asset(
+                          'assets/icons/icon2.png',
+                          width: 14,
+                          color: AppColors.textPillColor,
+                        ),
                         const SizedBox(width: 8),
                         Text(
                           "SYSTEM NOTIFICATION",
@@ -80,7 +84,8 @@ class WelcomeScreen extends StatelessWidget {
                     text: "YOU HAVE BEEN",
                     gradient: AppColors.textGradient,
                     style: GoogleFonts.orbitron(
-                      fontSize: 40,
+                      fontSize: 40, // Increased size per your previous design
+                      fontWeight: FontWeight.bold,
                       letterSpacing: 1.5,
                     ),
                   ),
@@ -88,22 +93,39 @@ class WelcomeScreen extends StatelessWidget {
                     text: "SELECTED",
                     gradient: AppColors.textGradientReverse,
                     style: GoogleFonts.orbitron(
-                      fontSize: 40,
+                      fontSize: 40, // Increased size per your previous design
+                      fontWeight: FontWeight.bold,
                       letterSpacing: 1.5,
                     ),
                   ),
 
                   const SizedBox(height: 20),
 
+                  // --- UPDATED TEXT SECTION ---
+                  // Primary Subtitle
                   Text(
-                    "You have been chosen as a Player.\nComplete awakening to unlock unlimited growth potential.",
+                    "You have been chosen as a Player.",
                     textAlign: TextAlign.center,
                     style: GoogleFonts.roboto(
                       color: Colors.grey,
+                      fontSize: 14, // Slightly larger hierarchy
+                      height: 1.5,
+                    ),
+                  ),
+
+                  const SizedBox(height: 8),
+
+                  // Secondary Description
+                  Text(
+                    "Complete awakening to unlock unlimited growth potential.",
+                    textAlign: TextAlign.center,
+                    style: GoogleFonts.roboto(
+                      color: Colors.grey, // Slightly darker grey
                       fontSize: 12,
                       height: 1.5,
                     ),
                   ),
+                  // ----------------------------
 
                   const Spacer(flex: 1),
 
@@ -111,17 +133,21 @@ class WelcomeScreen extends StatelessWidget {
                   NeonButton(
                     text: "START AWAKENING",
                     onPressed: () {
+                      // We will add navigation to the Profile Screen here later
                       print("Navigating to next screen...");
                     },
                   ),
 
                   const SizedBox(height: 20),
-                  
+
                   Text(
                     "The System is watching. The System is waiting.",
-                    style: TextStyle(color: Colors.white.withOpacity(0.3), fontSize: 10),
+                    style: TextStyle(
+                      color: Colors.white.withOpacity(0.3),
+                      fontSize: 10,
+                    ),
                   ),
-                  
+
                   const Spacer(flex: 1),
                 ],
               ),
