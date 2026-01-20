@@ -9,8 +9,8 @@ class GlowHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 100,
-      height: 100,
+      width: 85,  // Reduced from 100
+      height: 85, // Reduced from 100
       decoration: BoxDecoration(
         shape: BoxShape.circle,
         gradient: const LinearGradient(
@@ -20,23 +20,20 @@ class GlowHeader extends StatelessWidget {
           ],
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
-          // This "stops" property forces the Blue to appear sooner
-          stops: [0.2, 1.0], 
+          stops: [0.2, 1.0],
         ),
         boxShadow: [
           BoxShadow(
-            // Blue glow with high opacity
             color: AppColors.headerGlowColor.withOpacity(0.65),
             blurRadius: 40,
             spreadRadius: 2,
-            offset: const Offset(0, 0),
           ),
         ],
       ),
       child: Center(
         child: Image.asset(
           iconPath,
-          width: 50,
+          width: 40, // Reduced from 50
           color: Colors.white,
         ),
       ),
