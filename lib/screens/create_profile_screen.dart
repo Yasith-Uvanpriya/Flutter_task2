@@ -6,6 +6,7 @@ import '../components/gradient_text.dart';
 import '../components/neon_button.dart';
 import '../components/custom_input_field.dart';
 import '../components/info_box.dart';
+import 'select_path_screen.dart'; // Import the next screen
 
 class CreateProfileScreen extends StatelessWidget {
   const CreateProfileScreen({super.key});
@@ -35,8 +36,7 @@ class CreateProfileScreen extends StatelessWidget {
           // Main Content
           SafeArea(
             child: SingleChildScrollView(
-              // --- CHANGED: Increased top padding from 20 to 50 ---
-              padding: const EdgeInsets.fromLTRB(30, 70, 30, 20),
+              padding: const EdgeInsets.fromLTRB(30, 50, 30, 20),
               child: Column(
                 children: [
                   const SizedBox(height: 10),
@@ -101,12 +101,35 @@ class CreateProfileScreen extends StatelessWidget {
 
                   const SizedBox(height: 30),
 
-                  // Button
+                  // --- UPDATED BUTTON WITH SLIDE TRANSITION ---
+                  // This removes the "Shadow/Ghost" effect completely
                   NeonButton(
                     text: "CONTINUE",
                     iconPath: 'assets/icons/icon4.png',
                     onPressed: () {
-                      print("Navigating to Select Path...");
+                      Navigator.push(
+                        context,
+                        PageRouteBuilder(
+                          pageBuilder: (context, animation, secondaryAnimation) =>
+                              const SelectPathScreen(),
+                          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                            // Slide from Right to Left
+                            const begin = Offset(1.0, 0.0);
+                            const end = Offset.zero;
+                            // Uses a smooth curve for a premium feel
+                            const curve = Curves.easeOutQuart;
+
+                            var tween = Tween(begin: begin, end: end)
+                                .chain(CurveTween(curve: curve));
+
+                            return SlideTransition(
+                              position: animation.drive(tween),
+                              child: child,
+                            );
+                          },
+                          transitionDuration: const Duration(milliseconds: 500),
+                        ),
+                      );
                     },
                   ),
 
@@ -117,7 +140,7 @@ class CreateProfileScreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       _buildDot(false),
-                      _buildDot(true),
+                      _buildDot(true), // Active
                       _buildDot(false),
                       _buildDot(false),
                     ],
