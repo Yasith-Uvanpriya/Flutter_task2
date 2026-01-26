@@ -88,7 +88,6 @@ class PathCard extends StatelessWidget {
                               style: GoogleFonts.orbitron(
                                 fontSize: 20,
                                 letterSpacing: 1,
-                                fontWeight: FontWeight.w700,
                                 color: const Color(0xFFEEEEEE),
                               ),
                             ),
@@ -97,7 +96,6 @@ class PathCard extends StatelessWidget {
                               description,
                               style: GoogleFonts.rajdhani(
                                 fontSize: 14,
-                                fontWeight: FontWeight.w500,
                                 color: const Color(0xFFD1D5DC),
                                 height: 1.2,
                               ),
