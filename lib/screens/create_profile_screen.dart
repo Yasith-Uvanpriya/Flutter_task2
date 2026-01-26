@@ -8,7 +8,6 @@ import '../components/gradient_text.dart';
 import '../components/neon_button.dart';
 import '../components/custom_input_field.dart';
 import '../components/info_box.dart';
-import 'select_path_screen.dart'; // Make sure this matches the filename exactly
 
 class CreateProfileScreen extends StatelessWidget {
   const CreateProfileScreen({super.key});
@@ -54,9 +53,8 @@ class CreateProfileScreen extends StatelessWidget {
                     text: "CREATE PROFILE",
                     gradient: AppColors.textGradient,
                     style: GoogleFonts.orbitron(
-                      fontSize: 24,
+                      fontSize: 30,
                       letterSpacing: 1.5,
-                      fontWeight: FontWeight.bold,
                     ),
                   ),
 
@@ -65,9 +63,9 @@ class CreateProfileScreen extends StatelessWidget {
                   // Subtitle
                   Text(
                     "Register your identity with the System",
-                    style: GoogleFonts.roboto(
+                    style: GoogleFonts.rajdhani(
                       color: Colors.grey,
-                      fontSize: 12,
+                      fontSize: 14,
                     ),
                   ),
 
