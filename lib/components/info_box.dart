@@ -39,8 +39,7 @@ class InfoBox extends StatelessWidget {
             title,
             style: GoogleFonts.rajdhani(
               color: titleColor,
-              fontSize: 11,
-              fontWeight: FontWeight.w600,
+              fontSize: 12,
               letterSpacing: 0.3,
             ),
           ),
@@ -49,8 +48,7 @@ class InfoBox extends StatelessWidget {
             body,
             style: GoogleFonts.rajdhani(
               color: AppColors.textLightGrey,
-              fontSize: 13,
-              fontWeight: FontWeight.w400,
+              fontSize: 14,
               height: 1.4,
             ),
           ),
