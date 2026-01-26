@@ -45,9 +45,8 @@ class NeonButton extends StatelessWidget {
                   text,
                   style: GoogleFonts.orbitron(
                     color: Colors.white,
-                    fontSize: 15, // Reduced from 16
-                    letterSpacing: 1.5,
-                    fontWeight: FontWeight.w500,
+                    fontSize: 16, // Reduced from 16
+                    letterSpacing: 0.8,
                   ),
                 ),
                 if (iconPath != null) ...[
