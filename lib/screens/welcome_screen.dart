@@ -94,8 +94,7 @@ class WelcomeScreen extends StatelessWidget {
                               text: "YOU HAVE BEEN",
                               gradient: AppColors.textGradient,
                               style: GoogleFonts.orbitron(
-                                fontSize: 28,
-                                fontWeight: FontWeight.bold,
+                                fontSize: 30,
                                 letterSpacing: 1.5,
                               ),
                             ),
@@ -103,8 +102,7 @@ class WelcomeScreen extends StatelessWidget {
                               text: "SELECTED",
                               gradient: AppColors.textGradientReverse,
                               style: GoogleFonts.orbitron(
-                                fontSize: 28,
-                                fontWeight: FontWeight.bold,
+                                fontSize: 30,
                                 letterSpacing: 1.5,
                               ),
                             ),
@@ -116,7 +114,7 @@ class WelcomeScreen extends StatelessWidget {
                               textAlign: TextAlign.center,
                               style: GoogleFonts.roboto(
                                 color: const Color.fromARGB(255, 248, 247, 247),
-                                fontSize: 14,
+                                fontSize: 16,
                                 height: 1.5,
                               ),
                             ),
@@ -128,7 +126,7 @@ class WelcomeScreen extends StatelessWidget {
                               textAlign: TextAlign.center,
                               style: GoogleFonts.roboto(
                                 color: Colors.grey,
-                                fontSize: 12,
+                                fontSize: 14,
                                 height: 1.5,
                               ),
                             ),
@@ -149,9 +147,9 @@ class WelcomeScreen extends StatelessWidget {
 
                             Text(
                               "The System is watching. The System is waiting.",
-                              style: TextStyle(
+                              style: GoogleFonts.rajdhani(
                                 color: Colors.white.withOpacity(0.3),
-                                fontSize: 10,
+                                fontSize: 12,
                               ),
                             ),
 
