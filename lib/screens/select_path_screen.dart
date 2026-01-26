@@ -34,7 +34,7 @@ class _SelectPathScreenState extends State<SelectPathScreen> {
       ),
       'tag1Text': 'Focus: Strength & Vitality',
       'tag1Color': const Color(0xFFC27AFF),
-      'tag2Text': 'Direct confrontation',
+      'tag2Text': 'Direct confrontation, high damage\n output',
       'tag2Color': const Color(0xFF00D3F2),
     },
     // 2. ASSASSIN
@@ -167,7 +167,6 @@ class _SelectPathScreenState extends State<SelectPathScreen> {
                     style: GoogleFonts.orbitron(
                       fontSize: 30,
                       letterSpacing: 1.5,
-                      fontWeight: FontWeight.w700,
                       color: Colors.white,
                     ),
                   ),
@@ -176,7 +175,7 @@ class _SelectPathScreenState extends State<SelectPathScreen> {
                 const SizedBox(height: 16),
                 
                 Text(
-                  'Choose your combat specialization. This determines your initial stat distribution.',
+                  'Choose your combat specialization. This determines\nyour initial stat distribution.',
                   textAlign: TextAlign.center,
                   style: GoogleFonts.rajdhani(
                     fontSize: 14,
