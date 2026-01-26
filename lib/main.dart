@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'theme/app_colors.dart'; // <--- Make sure this is imported
-import 'screens/welcome_screen.dart';
+import 'theme/app_colors.dart';
+import 'router/app_router.dart'; // Import the router
 
 void main() {
   runApp(const MyApp());
@@ -11,16 +11,16 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router( // Changed to .router
       title: 'Solo Leveling UI',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         brightness: Brightness.dark,
         useMaterial3: true,
-        // --- THIS LINE STOPS THE FLASHING ---
-        scaffoldBackgroundColor: AppColors.bgBlack, 
+        scaffoldBackgroundColor: AppColors.bgBlack,
       ),
-      home: const WelcomeScreen(),
+      // Connect GoRouter
+      routerConfig: AppRouter.router, 
     );
   }
 }
