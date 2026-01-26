@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:go_router/go_router.dart'; // 1. Import GoRouter
 import '../theme/app_colors.dart';
+import '../theme/app_sizes.dart'; // 2. Import AppSizes
 import '../components/glow_header.dart';
 import '../components/gradient_text.dart';
 import '../components/neon_button.dart';
 import '../components/custom_input_field.dart';
 import '../components/info_box.dart';
-import 'select_path_screen.dart'; // Import the next screen
+import 'select_path_screen.dart'; // Make sure this matches the filename exactly
 
 class CreateProfileScreen extends StatelessWidget {
   const CreateProfileScreen({super.key});
@@ -36,15 +38,16 @@ class CreateProfileScreen extends StatelessWidget {
           // Main Content
           SafeArea(
             child: SingleChildScrollView(
-              padding: const EdgeInsets.fromLTRB(30, 50, 30, 20),
+              // Use AppSizes for padding
+              padding: const EdgeInsets.fromLTRB(AppSizes.p30, AppSizes.p50, AppSizes.p30, AppSizes.p20),
               child: Column(
                 children: [
-                  const SizedBox(height: 10),
+                  AppSizes.gap10,
 
                   // Header Icon
                   const GlowHeader(iconPath: 'assets/icons/icon3.png'),
 
-                  const SizedBox(height: 20),
+                  AppSizes.gap20,
 
                   // Title
                   GradientText(
@@ -57,7 +60,7 @@ class CreateProfileScreen extends StatelessWidget {
                     ),
                   ),
 
-                  const SizedBox(height: 8),
+                  AppSizes.gap8,
 
                   // Subtitle
                   Text(
@@ -68,7 +71,7 @@ class CreateProfileScreen extends StatelessWidget {
                     ),
                   ),
 
-                  const SizedBox(height: 30),
+                  AppSizes.gap30,
 
                   // Custom Input Field
                   const CustomInputField(
@@ -77,7 +80,7 @@ class CreateProfileScreen extends StatelessWidget {
                     helperText: " This name will be displayed throughout your journey",
                   ),
 
-                  const SizedBox(height: 20),
+                  AppSizes.gap20,
 
                   // Info Box 1
                   const InfoBox(
@@ -88,7 +91,7 @@ class CreateProfileScreen extends StatelessWidget {
                     titleColor: AppColors.purpleBoxTitle,
                   ),
 
-                  const SizedBox(height: 15),
+                  const SizedBox(height: 15), // Keeping strictly visual tweak or replace with AppSizes.gap16
 
                   // Info Box 2
                   const InfoBox(
@@ -99,41 +102,20 @@ class CreateProfileScreen extends StatelessWidget {
                     titleColor: AppColors.blueBoxTitle,
                   ),
 
-                  const SizedBox(height: 30),
+                  AppSizes.gap30,
 
-                  // --- UPDATED BUTTON WITH SLIDE TRANSITION ---
-                  // This removes the "Shadow/Ghost" effect completely
+                  // --- UPDATED BUTTON WITH GO ROUTER ---
                   NeonButton(
                     text: "CONTINUE",
                     iconPath: 'assets/icons/icon4.png',
                     onPressed: () {
-                      Navigator.push(
-                        context,
-                        PageRouteBuilder(
-                          pageBuilder: (context, animation, secondaryAnimation) =>
-                              const SelectPathScreen(),
-                          transitionsBuilder: (context, animation, secondaryAnimation, child) {
-                            // Slide from Right to Left
-                            const begin = Offset(1.0, 0.0);
-                            const end = Offset.zero;
-                            // Uses a smooth curve for a premium feel
-                            const curve = Curves.easeOutQuart;
-
-                            var tween = Tween(begin: begin, end: end)
-                                .chain(CurveTween(curve: curve));
-
-                            return SlideTransition(
-                              position: animation.drive(tween),
-                              child: child,
-                            );
-                          },
-                          transitionDuration: const Duration(milliseconds: 500),
-                        ),
-                      );
+                      // Simple, clean navigation
+                      // The 'Slide' transition is handled in app_router.dart
+                      context.push('/select-path');
                     },
                   ),
 
-                  const SizedBox(height: 20),
+                  AppSizes.gap20,
 
                   // Dots
                   Row(
@@ -146,7 +128,7 @@ class CreateProfileScreen extends StatelessWidget {
                     ],
                   ),
 
-                  const SizedBox(height: 10),
+                  AppSizes.gap10,
                 ],
               ),
             ),
