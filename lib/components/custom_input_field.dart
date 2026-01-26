@@ -23,7 +23,7 @@ class CustomInputField extends StatelessWidget {
           label,
           style: GoogleFonts.orbitron(
             color: AppColors.neonPurple,
-            fontSize: 13, // Reduced from 14
+            fontSize: 14, // Reduced from 14
             letterSpacing: 0.35,
           ),
         ),
@@ -39,12 +39,12 @@ class CustomInputField extends StatelessWidget {
             ),
           ),
           child: TextField(
-            style: GoogleFonts.rajdhani(color: Colors.white, fontSize: 14),
+            style: GoogleFonts.orbitron(color: Colors.white, fontSize: 16),
             decoration: InputDecoration(
               border: InputBorder.none,
               contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 11),
               hintText: hintText,
-              hintStyle: GoogleFonts.rajdhani(color: Colors.white.withOpacity(0.5)),
+              hintStyle: GoogleFonts.rajdhani(color: const Color.fromARGB(255, 160, 153, 153).withOpacity(0.5)),
             ),
           ),
         ),
@@ -53,7 +53,7 @@ class CustomInputField extends StatelessWidget {
           helperText,
           style: GoogleFonts.rajdhani(
             color: AppColors.textGrey,
-            fontSize: 11, // Reduced from 12
+            fontSize: 12, // Reduced from 12
           ),
         ),
       ],
