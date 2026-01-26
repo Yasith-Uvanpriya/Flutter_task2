@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:go_router/go_router.dart'; // 1. Import GoRouter
 import '../theme/app_colors.dart';
+import '../theme/app_sizes.dart'; // 2. Import AppSizes
 import '../components/neon_button.dart';
 import '../components/gradient_text.dart';
 import '../components/glow_header.dart';
-import 'create_profile_screen.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});
@@ -42,16 +43,18 @@ class WelcomeScreen extends StatelessWidget {
                   child: IntrinsicHeight(
                     child: SafeArea(
                       child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 30),
+                        // Use consistent screen padding
+                        padding: const EdgeInsets.symmetric(horizontal: AppSizes.p30),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            // Flexible spacer at top keeps content vertically centered/high
+                            // Flexible spacer at top
                             const Spacer(flex: 1),
 
                             const GlowHeader(iconPath: 'assets/icons/icon1.png'),
 
-                            const SizedBox(height: 40),
+                            // Use AppSizes for gaps
+                            AppSizes.gap40,
 
                             Container(
                               width: 225,
@@ -69,10 +72,10 @@ class WelcomeScreen extends StatelessWidget {
                                 children: [
                                   Image.asset(
                                     'assets/icons/icon2.png',
-                                    width: 14,
+                                    width: AppSizes.iconSmall, // 14.0
                                     color: AppColors.textPillColor,
                                   ),
-                                  const SizedBox(width: 8),
+                                  AppSizes.gap8,
                                   Text(
                                     "SYSTEM NOTIFICATION",
                                     style: GoogleFonts.orbitron(
@@ -85,13 +88,14 @@ class WelcomeScreen extends StatelessWidget {
                               ),
                             ),
 
-                            const SizedBox(height: 30),
+                            AppSizes.gap30,
 
                             GradientText(
                               text: "YOU HAVE BEEN",
                               gradient: AppColors.textGradient,
                               style: GoogleFonts.orbitron(
                                 fontSize: 28,
+                                fontWeight: FontWeight.bold,
                                 letterSpacing: 1.5,
                               ),
                             ),
@@ -100,11 +104,12 @@ class WelcomeScreen extends StatelessWidget {
                               gradient: AppColors.textGradientReverse,
                               style: GoogleFonts.orbitron(
                                 fontSize: 28,
+                                fontWeight: FontWeight.bold,
                                 letterSpacing: 1.5,
                               ),
                             ),
 
-                            const SizedBox(height: 20),
+                            AppSizes.gap20,
 
                             Text(
                               "You have been chosen as a Player.",
@@ -116,7 +121,7 @@ class WelcomeScreen extends StatelessWidget {
                               ),
                             ),
 
-                            const SizedBox(height: 8),
+                            AppSizes.gap8,
 
                             Text(
                               "Complete awakening to unlock unlimited growth potential.",
@@ -128,21 +133,19 @@ class WelcomeScreen extends StatelessWidget {
                               ),
                             ),
 
-                            // --- CHANGED: Replaced Spacer with fixed SizedBox ---
-                            // This brings the button closer to the text above
-                            const SizedBox(height: 50), 
+                            // Fixed spacer to bring button closer to text
+                            AppSizes.gap50,
 
                             NeonButton(
                               text: "START AWAKENING",
                               onPressed: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(builder: (context) => const CreateProfileScreen()),
-                                );
+                                // 3. Use GoRouter Navigation
+                                // The transitions are handled in app_router.dart
+                                context.push('/create-profile');
                               },
                             ),
 
-                            const SizedBox(height: 20),
+                            AppSizes.gap20,
 
                             Text(
                               "The System is watching. The System is waiting.",
@@ -152,7 +155,7 @@ class WelcomeScreen extends StatelessWidget {
                               ),
                             ),
 
-                            // Spacer at bottom to balance the top spacer
+                            // Spacer at bottom
                             const Spacer(flex: 1),
                           ],
                         ),
